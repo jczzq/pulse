@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-// import 'package:flutter_statusbar_manager/flutter_statusbar_manager.dart';
 
 class Browser extends StatelessWidget {
   const Browser({Key key, this.url, this.title}) : super(key: key);
