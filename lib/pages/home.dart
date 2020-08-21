@@ -41,25 +41,26 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _chooseAction() {
-    if (typeController.text.toString() == '') {
-      showDialog(
-          context: context,
-          builder: (ctx) => AlertDialog(title: Text('类型不能为空')));
-    } else {
-      getHttp(typeController.text.toString()).then((val) => {
-            setState(() {
-              showText = val.toString();
-            })
-          });
-    }
+    // if (typeController.text.toString() == '') {
+    //   showDialog(
+    //       context: context,
+    //       builder: (ctx) => AlertDialog(title: Text('类型不能为空')));
+    // } else {
+    // }
+    getHttp(typeController.text.toString()).then((val) => {
+          setState(() {
+            showText = val.toString();
+          })
+        });
   }
 
   Future getHttp(String typeText) async {
     print('开始请求...');
     try {
       Response res;
-      var data = {'name': typeText};
-      res = await new Dio().get('https://baidu.com', queryParameters: data);
+      var data = {'mdrender': 'false'};
+      res = await new Dio()
+          .get('https://cnodejs.org/api/v1/topics', queryParameters: data);
       print('请求结束');
       print(res);
       return res.data;
